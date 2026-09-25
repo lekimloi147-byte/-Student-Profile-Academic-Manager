@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_screen_gradient">
+    android:background="@drawable/bg_screen_gradient"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,107 +16,138 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="UTE • SƯ PHẠM KỸ THUẬT"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="28dp"
+            android:text="UTE  •  SƯ PHẠM KỸ THUẬT"
             android:textColor="#8FA8D9"
             android:textSize="13sp"
             android:textStyle="bold"
-            android:letterSpacing="0.1" />
+            android:letterSpacing="0.15" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="12dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardCornerRadius="28dp"
+            app:cardElevation="18dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="28dp">
+                android:padding="30dp">
 
-                <!-- Avatar bo tron that su, dung CardView radius = nua canh -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="50dp"
-                    app:cardElevation="6dp"
-                    app:cardBackgroundColor="#FF8A3D">
+                <!-- Avatar với viền gradient -->
+                <FrameLayout
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:background="@drawable/bg_avatar_ring"
+                    android:padding="4dp">
 
-                    <ImageView
-                        android:id="@+id/imgAvatar"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="8dp"
-                        android:src="@mipmap/ic_launcher_round"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="Anh sinh vien" />
-                </androidx.cardview.widget.CardView>
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <ImageView
+                            android:id="@+id/imgAvatar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/avatar_ute"
+                            android:scaleType="centerCrop"
+                            android:contentDescription="Anh sinh vien" />
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:textSize="22sp"
+                    android:layout_marginTop="18dp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
-                    android:textColor="#1B2A4A" />
+                    android:textColor="#1B2A4A"
+                    android:letterSpacing="0.01" />
 
                 <TextView
                     android:id="@+id/tvStudentId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="6dp"
                     android:textSize="14sp"
                     android:textColor="#6B7A99" />
 
                 <View
-                    android:layout_width="60dp"
+                    android:layout_width="72dp"
                     android:layout_height="3dp"
-                    android:background="#FF8A3D"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp" />
+                    android:background="@drawable/bg_divider_gradient"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp" />
 
-                <!-- Hang GPA + huy hieu xep loai -->
+                <!-- Khối GPA + xếp loại -->
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#F6F8FC"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp">
 
                     <TextView
-                        android:id="@+id/tvGpaBadge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:text="ĐIỂM TRUNG BÌNH TÍCH LŨY"
+                        android:textColor="#9AA6BD"
+                        android:textSize="11sp"
                         android:textStyle="bold"
-                        android:textColor="#1B2A4A"
-                        android:layout_marginEnd="10dp" />
+                        android:letterSpacing="0.1" />
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cardRankBadge"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="20dp"
-                        app:cardElevation="0dp"
-                        app:cardBackgroundColor="#34B469">
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp">
 
                         <TextView
-                            android:id="@+id/tvRankBadge"
+                            android:id="@+id/tvGpaBadge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingStart="14dp"
-                            android:paddingEnd="14dp"
-                            android:paddingTop="6dp"
-                            android:paddingBottom="6dp"
-                            android:textColor="#FFFFFF"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </androidx.cardview.widget.CardView>
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            android:textColor="#1B2A4A"
+                            android:layout_marginEnd="12dp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardRankBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="20dp"
+                            app:cardElevation="3dp"
+                            app:cardBackgroundColor="#34B469">
+
+                            <TextView
+                                android:id="@+id/tvRankBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="16dp"
+                                android:paddingTop="7dp"
+                                android:paddingBottom="7dp"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="0.05" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <EditText
@@ -126,20 +158,28 @@
                     android:inputType="numberDecimal"
                     android:textColor="#1B2A4A"
                     android:textColorHint="#A6B0C3"
-                    android:padding="14dp"
-                    android:background="#F0F3FA"
-                    android:layout_marginTop="24dp" />
+                    android:textSize="15sp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:background="@drawable/bg_edittext_rounded"
+                    android:layout_marginTop="26dp" />
 
                 <Button
                     android:id="@+id/btnUpdateGpa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="CẬP NHẬT THÔNG TIN"
-                    android:backgroundTint="#2E4C8A"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
-                    android:layout_marginTop="14dp"
-                    android:padding="12dp" />
+                    android:textSize="14sp"
+                    android:letterSpacing="0.03"
+                    android:background="@drawable/bg_button_selector"
+                    android:elevation="4dp"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
